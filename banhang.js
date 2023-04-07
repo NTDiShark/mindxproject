@@ -1,9 +1,13 @@
-let arr =[1,2,34,4,5]
+const $signUp= document.getElementById('btn-sign-up');
+console.log($signUp)
+const modalBox1= document.getElementById('modal-container')
+console.log(modalBox1);
+$signUp.addEventListener('click',()=>{
+    modalBox1.classList.add('show');
+})
 
-let arr1=arr.map(function(){
-    console.log(1)
-    return `Bai thơ con ca
-    Bai tho con ho
-    bai tho con cop`
-}).join()
-console.log(arr1)
+const buttonClose= document.getElementById('button-close')
+console.log(buttonClose)
+buttonClose.addEventListener('click',()=>{
+    modalBox1.classList.remove('show');
+});

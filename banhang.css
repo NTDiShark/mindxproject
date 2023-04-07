@@ -1,0 +1,18 @@
+
+#modal-container{
+    height:100vh;
+    position:fixed;
+    top:0px;
+    width:50%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: yellow;
+    opacity: 0;
+    pointer-events: none;
+}
+
+#modal-container.show{
+    opacity: 1;
+    pointer-events: all;
+}
+ 

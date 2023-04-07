@@ -12,6 +12,7 @@
 
     <!-- Latest compiled JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="banhang.css" />
   </head>
   <body>
     <nav class="navbar navbar-expand-sm navbar-dark bg-secondary">
@@ -39,15 +40,34 @@
             </li>
           </ul>
         </div>
-        <ul class="navbar-nav">
-          <li>
-            <button class="btn btn-danger me-1">Đăng ký</button>
-          </li>
-          <li>
-            <button class="btn btn-danger">Đăng nhập</button>
-          </li>
-        </ul>
+        <div>
+          <ul class="navbar-nav">
+            <li>
+              <button id="btn-sign-up" class="btn btn-danger me-1">
+                Đăng ký
+              </button>
+            </li>
+            <li>
+              <button class="btn btn-danger">Đăng nhập</button>
+            </li>
+          </ul>
+        </div>
       </div>
     </nav>
+    <!-- Modal box code -->
+    <div id="modal-container">
+      <div>Đăng ký</div>
+      <div>
+        <span>Tên đăng nhập</span>
+        <input type="text" name="Tên đăng nhập" />
+      </div>
+      <div>
+        <span>Mật khẩu</span>
+        <input type="password" name="Đặt mật khẩu" />
+      </div>
+      <button id="button-close">close</button>
+    </div>
+
+    <script src="banhang.js"></script>
   </body>
 </html>
