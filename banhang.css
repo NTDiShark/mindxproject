@@ -39,6 +39,8 @@
     pointer-events:none;
 }
 .modal-signup-box{
+    position:fixed;
+    margin-top:500px;
     width:500px;
     height: 500px;
     border: solid;
