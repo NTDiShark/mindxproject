@@ -30,6 +30,8 @@
     justify-content:flex-start;
     align-items: center;
     border-radius: 10px;
+    position:fixed;
+    margin-top: 500px;
 }
 .signup-container{
     display:flex;
