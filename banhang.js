@@ -24,71 +24,71 @@ const dataPants=[
         idProduct: 1,
         productName:'Quần tây dài',
         image:'https://cf.shopee.vn/file/1895d6c9310fb46e43db0e39516e884b',
-        price: 5000+'đ',
+        price: '5.000.000đ',
         idType:'Quần',
 
     },
     {
         idProduct: 2,
         productName:'Quần tây dài',
-        image:'https://cf.shopee.vn/file/1895d6c9310fb46e43db0e39516e884b',
-        price: 5000+'đ',
+        image:'https://product.hstatic.net/1000096703/product/1_97e42ec95db74e9fa48e57a068f88165_master.jpg',
+        price: '5.000.000đ',
         idType:'Quần',
 
     },
     {
         idProduct: 3,
         productName:'Quần tây dài',
-        image:'https://cf.shopee.vn/file/1895d6c9310fb46e43db0e39516e884b',
-        price: 5000+'đ',
+        image:'https://product.hstatic.net/1000096703/product/1_97e42ec95db74e9fa48e57a068f88165_master.jpg',
+        price: '5.000.000đ',
         idType:'Quần',
 
     },
     {
         idProduct: 4,
         productName:'Quần tây dài',
-        image:'https://cf.shopee.vn/file/1895d6c9310fb46e43db0e39516e884b',
-        price: 5000+'đ',
+        image:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMOBnaXvwJvDavW-NWZzH0RZkoyHTphpmn5A&usqp=CAU',
+        price: '5.000.000đ',
         idType:'Quần',
 
     },
     {
         idProduct: 5,
         productName:'Quần tây dài',
-        image:'https://cf.shopee.vn/file/1895d6c9310fb46e43db0e39516e884b',
-        price: 5000+'đ',
+        image:'https://menfit.vn/uploads/m/a/9/U/-/I4PFf_quan-tay-nam-9065-cuongstore.jpg',
+        price: '5.000.000đ',
         idType:'Quần',
 
     },
     {
         idProduct: 6,
         productName:'Quần tây dài',
-        image:'https://cf.shopee.vn/file/1895d6c9310fb46e43db0e39516e884b',
-        price: 5000+'đ',
+        image:'https://img.cdn.vncdn.io/cdn-pos/492284-9176/ps/20210206_fSWZ7VWFrwRkPC6GjvawOw7M.jpg',
+        price: '5.000.000đ',
         idType:'Quần',
 
     },
     {
         idProduct: 7,
         productName:'Quần tây dài',
-        image:'https://cf.shopee.vn/file/1895d6c9310fb46e43db0e39516e884b',
-        price: 5000+'đ',
+        image:'https://dony.vn/wp-content/uploads/2022/03/quan-cau-long-nam-dep-ban-chay-1.jpg',
+        price: '5.000.000đ',
         idType:'Quần',
 
     },
     {
         idProduct: 8,
         productName:'Quần tây dài',
-        image:'https://cf.shopee.vn/file/1895d6c9310fb46e43db0e39516e884b',
-        price: 5000+'đ',
+        image:'https://www.mendaily.vn/images/thumbs/2020/11/quan-kaki-tron-can-ban-qk004-mau-den-15675-slide-products-5f9fd1219ab12.png',
+        price: '5.000.000đ',
         idType:'Quần',
 
     },
     {
         idProduct: 9,
         productName:'Quần tây dài',
-        image:'https://cf.shopee.vn/file/1895d6c9310fb46e43db0e39516e884b',
-        price: 5000+'đ',
+        image:'https://www.mendaily.vn/images/thumbs/2020/11/quan-kaki-tron-can-ban-qk004-mau-den-15675-slide-products-5f9fd1219ab12.png',
+        price: '5.000.000đ',
         idType:'Quần',
 
     },
@@ -96,7 +96,7 @@ const dataPants=[
         idProduct: 10,
         productName:'Quần tây dài',
         image:'https://cf.shopee.vn/file/1895d6c9310fb46e43db0e39516e884b',
-        price: 5000+'đ',
+        price: '5.000.000đ',
         idType:'Quần',
 
     },
@@ -104,7 +104,7 @@ const dataPants=[
         idProduct: 11,
         productName:'Quần tây dài',
         image:'https://cf.shopee.vn/file/1895d6c9310fb46e43db0e39516e884b',
-        price: 5000+'đ',
+        price: '5.000.000đ',
         idType:'Quần',
 
     },
@@ -112,7 +112,7 @@ const dataPants=[
         idProduct: 12,
         productName:'Quần tây dài',
         image:'https://cf.shopee.vn/file/1895d6c9310fb46e43db0e39516e884b',
-        price: 5000+'đ',
+        price: '5.000.000đ',
         idType:'Quần',
 
     },
