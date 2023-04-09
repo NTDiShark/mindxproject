@@ -3,10 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=o, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
-    
+<style>
+    .box {
+        margin: 3rem;
+        background-color: red;
+        padding: 2rem;
+        width: fit-content;
+        text-decoration: none;
+        color: white;
+    }
+</style>
+<body >
+    <div style="display: flex;">
+        <a class="box" id="data-a" href="#type=quan" onclick="changeContainer()">Quần</a>
+        <a class="box" id="data-b" href="#type=ao" onclick="changeContainer()">Áo</a>
+        <a class="box" id="data-c" href="#type=dep" onclick="changeContainer()">Dép</a>
+        <div class="box">Quần</div>
+    </div>
+    <div id="container">
+    </div>
 </body>
+<script src="index.js"></script>
 </html>
