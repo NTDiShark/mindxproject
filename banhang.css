@@ -1,4 +1,6 @@
-
+:root {
+    box-sizing: border-box;
+}
 
  
 .m8{
@@ -58,4 +60,32 @@
 .signup-container.show{
     opacity:1;
     pointer-events:all;
+}
+
+.product-container {
+    display: flex;
+}
+
+#menu {
+    width: 20%;
+    background-color: red;
+    height: 20rem;
+    margin: 0.5rem;
+    padding: 1rem;
+}
+
+#product-list {
+    width: 80%;
+    background-color: green;
+    height: 30rem;
+    margin: 0.5rem;
+    padding: 1rem;
+}
+
+.tag {
+    width: 100%;
+    padding: 0.3rem;
+    border: 1px solid black;
+    margin-bottom: 3px;
+    cursor: pointer;
 }
