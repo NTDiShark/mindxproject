@@ -31,13 +31,14 @@ const TYPES = [
     {
         id: 'giay',
         name: 'Giày'
-    }
+    },
+    
 ];
 
 const _container = document.getElementById("product-list");
 
 const renderFilterMenu = (menu) => {
-    const menuItems = menu.map(item => {
+    const menuItems = TYPES.map(item => {
         return `
             <div class="tag" id="${item.id}">${item.name}</div>
         `;
@@ -46,7 +47,7 @@ const renderFilterMenu = (menu) => {
     console.log(menuItems)
     _menu.innerHTML = menuItems;
 
-    menu.forEach(item => {
+    TYPES.forEach(item => {
         document.getElementById(item.id).addEventListener('click', () => {
             _container.innerHTML = `Đây là những sản phẩm thuộc loại ${item.name}`;
         });
@@ -54,5 +55,4 @@ const renderFilterMenu = (menu) => {
 }
 
 renderFilterMenu(TYPES);
-
 
