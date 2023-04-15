@@ -64,28 +64,38 @@
 
 .product-container {
     display: flex;
+    padding: 0 2.5rem;
 }
 
 #menu {
     width: 20%;
-    background-color: red;
-    height: 20rem;
+    background-color: #f2f2f2;
+    height: fit-content;
     margin: 0.5rem;
-    padding: 1rem;
+    padding: 0.5rem;
+    border-radius: 10px;
+}
+
+.menu-item {
+    width: 100%;
+    padding: 0.5rem;
+    background-color: white;
+    border: 1px solid black;
+    margin-bottom: 3px;
+    cursor: pointer;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.menu-item:hover{
+    background-color: #cccccc;
 }
 
 #product-list {
     width: 80%;
-    background-color: green;
-    height: 30rem;
+    background-color: #ffffe6;
+    height: fit-content;
     margin: 0.5rem;
     padding: 1rem;
-}
-
-.tag {
-    width: 100%;
-    padding: 0.3rem;
-    border: 1px solid black;
-    margin-bottom: 3px;
-    cursor: pointer;
+    border-radius: 10px;
 }
