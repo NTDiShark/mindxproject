@@ -81,7 +81,9 @@ const PRODUCTS = [
         price: '200.000đ',
         idType: 'ao',
     },
-]
+];
+
+const carts = [];
 
 const container = document.getElementById("product-list");
 
@@ -93,20 +95,6 @@ const renderFilterMenu = (menu) => {
     }).join('');
     const _menu = document.getElementById('menu');
     _menu.innerHTML = menuItems;
-
-    const allProduct = PRODUCTS.map(({ idProduct, productName, image, price }) => {
-        return `
-            <div class="aProduct">
-                <img class="imgProduct" src=${image} id=${idProduct}/>
-                <div class="detailsProduct">
-                    <h5>${productName}</h5>
-                    <div class="priceProduct">${price}</div>
-                    <div class="buyProduct">Mua</div>
-                </div>
-            </div>
-        `
-    }).join('');
-    container.innerHTML = allProduct;
 
     menu.forEach(typeProduct => {
         document.getElementById(typeProduct.id).addEventListener('click', () => {
@@ -130,14 +118,22 @@ const renderFilterMenu = (menu) => {
                         <div class="detailsProduct">
                             <h5>${productName}</h5>
                             <div class="priceProduct">${price}</div>
-                            <div class="buyProduct">Mua</div>
+                            <div id="buy-${idProduct}" class="buyProduct">Mua</div>
                         </div>
                 </div>
                 `
             }).join('');
             container.innerHTML = _renderProduct;
+
+            _productList.forEach(item => {
+                document.getElementById(`buy-${item.idProduct}`).addEventListener('click', () => {
+                    carts.push(item);
+                });
+            });
         });
     });
+
+    document.getElementById('all').click();
 }
 
 renderFilterMenu(TYPES);
