@@ -143,30 +143,37 @@ function formatString(str) {
     return str;
 }
 
+let timeoutId = null;
+
 function searchProduct() {
     let keySearch = document.getElementById("searchProduct").value;
     keySearch = formatString(keySearch);
-    let searchList = [];
-    PRODUCTS.forEach(aProduct => {
-        const temp = formatString(aProduct.productName);
-        if (temp.indexOf(keySearch) != -1) searchList.push(aProduct);
-    })
-    if (searchList == null) container.innerHTML = "Không có sản phẩm bạn cần tìm";
-    else {
-        const _renderSearched = searchList.map(({ idProduct, productName, image, price }) => {
-            return `
-            <div class="aProduct">
-                <img class="imgProduct" src=${image} id=${idProduct}/>
-                    <div class="detailsProduct">
-                        <h5>${productName}</h5>
-                        <div class="priceProduct">${price}</div>
-                        <div class="buyProduct">Mua</div>
-                    </div>
-            </div>
-            `
-        }).join('');
-        container.innerHTML = _renderSearched;
-    }
+    console.log(keySearch);
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(() => {
+        let searchList = [];
+        PRODUCTS.forEach(aProduct => {
+            const temp = formatString(aProduct.productName);
+            if (temp.indexOf(keySearch) != -1) searchList.push(aProduct);
+        })
+        if (searchList == null) container.innerHTML = "Không có sản phẩm bạn cần tìm";
+        else {
+            const _renderSearched = searchList.map(({ idProduct, productName, image, price }) => {
+                return `
+                <div class="aProduct">
+                    <img class="imgProduct" src=${image} id=${idProduct}/>
+                        <div class="detailsProduct">
+                            <h5>${productName}</h5>
+                            <div class="priceProduct">${price}</div>
+                            <div class="buyProduct">Mua</div>
+                        </div>
+                </div>
+                `
+            }).join('');
+            container.innerHTML = _renderSearched;
+        }
+    }, 400);
+    
 }
 
 document.getElementById('searchBut').addEventListener('click', searchProduct);
