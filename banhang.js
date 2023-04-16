@@ -38,7 +38,7 @@ const TYPES = [
 const _container = document.getElementById("product-list");
 
 const renderFilterMenu = (menu) => {
-    const menuItems = TYPES.map(item => {
+    const menuItems = menu.map(item => {
         return `
             <div class="tag" id="${item.id}">${item.name}</div>
         `;
@@ -47,7 +47,7 @@ const renderFilterMenu = (menu) => {
     console.log(menuItems)
     _menu.innerHTML = menuItems;
 
-    TYPES.forEach(item => {
+    menu.forEach(item => {
         document.getElementById(item.id).addEventListener('click', () => {
             _container.innerHTML = `Đây là những sản phẩm thuộc loại ${item.name}`;
         });
@@ -146,7 +146,3 @@ const pantList= dataPants.map(({idProduct,productName,image,price,idType})=>{
 }).join('');
 console.log(pantList)
 pantCard.innerHTML=pantList;
-
-var arr=[1,2,4,5]
-
-var arr3=arr.join('')

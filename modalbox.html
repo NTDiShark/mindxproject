@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="modalbox.css"></linl>
+  </head>
+  <body>
+    <h2>Modal Login Form</h2>
+    <button id="button-Signup">Signup</button>
+    <button id="button">Login</button>
+<!--Modal Login-->
+<div id="id01" class="modal">
+  <form class="modal-content animate" action="/action_page.php" method="post">
+    <div class="modal-title">Login</div>
+    <div class="container">
+      <label class="text-input" for="uname"><b>Username</b></label>
+      <input class="modal-input-login" type="text" placeholder="Enter Username" name="uname" required>
+
+      <label class="text-input" for="psw"><b>Password</b></label>
+      <input class="modal-input-login" type="password" placeholder="Enter Password" name="psw" required>
+        
+      <button class="botton-login" type="submit">Login</button>
+      <button class="botton-close">Cancle</button>
+    </div>
+  </form>
+</div>
+<!--Sign up-->
+<div id="id02" class="modal">
+  <form class="modal-content animate" action="/action_page.php" method="post">
+    <div class="modal-title">Signup</div>
+    <div class="container">
+      <label class="text-input" for="uname"><b>Username</b></label>
+      <input class="modal-input-login" type="text" placeholder="Enter Username" name="uname" required>
+
+      <label class="text-input" for="psw"><b>Password</b></label>
+      <input class="modal-input-login" type="password" placeholder="Enter Password" name="psw" required>
+        
+      <button class="botton-login" type="submit">Signup</button>
+      <button class="botton-close">Cancle</button>
+    </div>
+  </form>
+</div>
+</script>
+<script src="modal.js"></script>
+  </body>
+</html>
