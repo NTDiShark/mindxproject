@@ -1,5 +1,9 @@
 const TYPES = [
     {
+        id: 'all',
+        name: 'Tất cả'
+    },
+    {
         id: 'quan',
         name: 'Quần'
     },
@@ -13,70 +17,70 @@ const TYPES = [
     }
 ];
 
-const PRODUCTS=[
+const PRODUCTS = [
     {
         idProduct: 1,
-        productName:'Quần Hiddy',
-        image:'https://bizweb.dktcdn.net/100/399/392/files/ten-goi-cac-loai-quan-nam.jpg?v=1657302603507',
+        productName: 'Quần Hiddy',
+        image: 'https://bizweb.dktcdn.net/100/399/392/files/ten-goi-cac-loai-quan-nam.jpg?v=1657302603507',
         price: '255.000đ',
-        idType:'quan',
+        idType: 'quan',
     },
     {
         idProduct: 2,
-        productName:'Quần tây dài',
-        image:'https://product.hstatic.net/1000096703/product/1_97e42ec95db74e9fa48e57a068f88165_master.jpg',
+        productName: 'Quần tây dài',
+        image: 'https://product.hstatic.net/1000096703/product/1_97e42ec95db74e9fa48e57a068f88165_master.jpg',
         price: '5.000đ',
-        idType:'quan',
+        idType: 'quan',
     },
     {
         idProduct: 3,
-        productName:'Quần Jean rách',
-        image:'https://thoitrangngaynay.com/upload/sanpham/large/quan-jeans-nam-rach-loang-mau-thoi-trang-488-1.jpg',
+        productName: 'Quần Jean rách',
+        image: 'https://thoitrangngaynay.com/upload/sanpham/large/quan-jeans-nam-rach-loang-mau-thoi-trang-488-1.jpg',
         price: '350.000đ',
-        idType:'quan',
+        idType: 'quan',
     },
     {
         idProduct: 4,
-        productName:'Giầy Kawwasaki',
-        image:'https://shopvnb.com/uploads/gallery/giay-cau-long-lining-ayzt005-3-chinh-hang.jpg',
+        productName: 'Giầy Kawwasaki',
+        image: 'https://shopvnb.com/uploads/gallery/giay-cau-long-lining-ayzt005-3-chinh-hang.jpg',
         price: '5.000.000đ',
-        idType:'giay',
+        idType: 'giay',
     },
     {
         idProduct: 5,
-        productName:'Giầy Lining',
-        image:'https://shopvnb.com/uploads/gallery/giay-cau-long-lining-ayat003-2-trang-den-noi-dia-trung.jpg',
+        productName: 'Giầy Lining',
+        image: 'https://shopvnb.com/uploads/gallery/giay-cau-long-lining-ayat003-2-trang-den-noi-dia-trung.jpg',
         price: '500.000đ',
-        idType:'giay',
+        idType: 'giay',
     },
     {
         idProduct: 6,
-        productName:'Giầy Yonex',
-        image:'https://shopvnb.com/uploads/gallery/giay-cau-long-lining-ayat001-2-den-noi-dia-trung.jpg',
+        productName: 'Giầy Yonex',
+        image: 'https://shopvnb.com/uploads/gallery/giay-cau-long-lining-ayat001-2-den-noi-dia-trung.jpg',
         price: '500.000đ',
-        idType:'giay',
+        idType: 'giay',
     },
     {
         idProduct: 7,
-        productName:'Áo cầu lông VNB',
-        image:'https://shopvnb.com/uploads/san_pham/ao-cau-long-vnb-nu-cam-ma-200-1.webp',
+        productName: 'Áo cầu lông VNB',
+        image: 'https://shopvnb.com/uploads/san_pham/ao-cau-long-vnb-nu-cam-ma-200-1.webp',
         price: '200.000',
-        idType:'ao',
+        idType: 'ao',
     },
     {
         idProduct: 8,
-        productName:'Áo cầu lông Lining',
-        image:'https://shopvnb.com/uploads/san_pham/ao-cau-long-yonex-nu-xanh-bien-ma-746-1.webp',
+        productName: 'Áo cầu lông Lining',
+        image: 'https://shopvnb.com/uploads/san_pham/ao-cau-long-yonex-nu-xanh-bien-ma-746-1.webp',
         price: '400.000đ',
-        idType:'ao',
+        idType: 'ao',
     },
     {
         idProduct: 9,
-        productName:'Áo cầu lông',
-        image:'https://shopvnb.com/uploads/san_pham/ao-cau-long-vnb-nam-trang-ma-753-1.webp',
+        productName: 'Áo cầu lông',
+        image: 'https://shopvnb.com/uploads/san_pham/ao-cau-long-vnb-nam-trang-ma-753-1.webp',
         price: '200.000đ',
-        idType:'ao',
-    },  
+        idType: 'ao',
+    },
 ]
 
 const container = document.getElementById("product-list");
@@ -90,7 +94,7 @@ const renderFilterMenu = (menu) => {
     const _menu = document.getElementById('menu');
     _menu.innerHTML = menuItems;
 
-    const allProduct = PRODUCTS.map(({idProduct,productName,image,price})=>{
+    const allProduct = PRODUCTS.map(({ idProduct, productName, image, price }) => {
         return `
             <div class="aProduct">
                 <img class="imgProduct" src=${image} id=${idProduct}/>
@@ -107,10 +111,19 @@ const renderFilterMenu = (menu) => {
     menu.forEach(typeProduct => {
         document.getElementById(typeProduct.id).addEventListener('click', () => {
             const checkType = (_type) => {
+                if (typeProduct.id === 'all') return true;
                 return _type.idType === typeProduct.id;
             };
+
+            const menuItem = document.getElementById(typeProduct.id);
+            const activeList = document.getElementsByClassName('menu-item-active');
+            for (const element of activeList) {
+                element.classList.remove('menu-item-active');
+            }
+            menuItem.classList.add('menu-item-active');
+
             const _productList = PRODUCTS.filter(checkType);
-            const _renderProduct = _productList.map(({idProduct,productName,image,price})=>{
+            const _renderProduct = _productList.map(({ idProduct, productName, image, price }) => {
                 return `
                 <div class="aProduct">
                     <img class="imgProduct" src=${image} id=${idProduct}/>
@@ -147,11 +160,11 @@ function searchProduct() {
     let searchList = [];
     PRODUCTS.forEach(aProduct => {
         const temp = formatString(aProduct.productName);
-        if(temp.indexOf(keySearch) != -1) searchList.push(aProduct);
+        if (temp.indexOf(keySearch) != -1) searchList.push(aProduct);
     })
-    if(searchList == null) container.innerHTML = "Không có sản phẩm bạn cần tìm";
+    if (searchList == null) container.innerHTML = "Không có sản phẩm bạn cần tìm";
     else {
-        const _renderSearched = searchList.map(({idProduct,productName,image,price})=>{
+        const _renderSearched = searchList.map(({ idProduct, productName, image, price }) => {
             return `
             <div class="aProduct">
                 <img class="imgProduct" src=${image} id=${idProduct}/>

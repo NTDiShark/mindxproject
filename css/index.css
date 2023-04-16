@@ -31,6 +31,10 @@
     background-color: #cccccc;
 }
 
+.menu-item-active {
+    background-color: #cccccc;
+}
+
 #product-list {
     width: 80%;
     height: fit-content;
