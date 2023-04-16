@@ -8,8 +8,10 @@
     top: 0px;
     width: 100%;
     left: 0px;
-    opacity:0;
     pointer-events: none;
+}
+.modal.hide{
+    opacity: 0;
 }
 .modal.show{
     opacity:1;
