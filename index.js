@@ -1,7 +1,7 @@
 const TYPES = [
     {
         id: 'all',
-        name: 'Tất cả'
+        name: 'Tất cả sản phẩm'
     },
     {
         id: 'quan',
@@ -96,11 +96,13 @@ const renderFilterMenu = (menu) => {
     const _menu = document.getElementById('menu');
     _menu.innerHTML = menuItems;
 
+
+
     menu.forEach(typeProduct => {
         document.getElementById(typeProduct.id).addEventListener('click', () => {
-            const checkType = (_type) => {
+            const checkType = (_product) => {
                 if (typeProduct.id === 'all') return true;
-                return _type.idType === typeProduct.id;
+                return _product.idType === typeProduct.id;
             };
 
             const menuItem = document.getElementById(typeProduct.id);
@@ -111,6 +113,7 @@ const renderFilterMenu = (menu) => {
             menuItem.classList.add('menu-item-active');
 
             const _productList = PRODUCTS.filter(checkType);
+            console.log(checkType);
             const _renderProduct = _productList.map(({ idProduct, productName, image, price }) => {
                 return `
                 <div class="aProduct">
@@ -150,30 +153,37 @@ function formatString(str) {
     return str;
 }
 
+let timeoutId = null;
+
 function searchProduct() {
     let keySearch = document.getElementById("searchProduct").value;
     keySearch = formatString(keySearch);
-    let searchList = [];
-    PRODUCTS.forEach(aProduct => {
-        const temp = formatString(aProduct.productName);
-        if (temp.indexOf(keySearch) != -1) searchList.push(aProduct);
-    })
-    if (searchList == null) container.innerHTML = "Không có sản phẩm bạn cần tìm";
-    else {
-        const _renderSearched = searchList.map(({ idProduct, productName, image, price }) => {
-            return `
-            <div class="aProduct">
-                <img class="imgProduct" src=${image} id=${idProduct}/>
-                    <div class="detailsProduct">
-                        <h5>${productName}</h5>
-                        <div class="priceProduct">${price}</div>
-                        <div class="buyProduct">Mua</div>
-                    </div>
-            </div>
-            `
-        }).join('');
-        container.innerHTML = _renderSearched;
-    }
+    console.log(keySearch);
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(() => {
+        let searchList = [];
+        PRODUCTS.forEach(aProduct => {
+            const temp = formatString(aProduct.productName);
+            if (temp.indexOf(keySearch) != -1) searchList.push(aProduct);
+        })
+        if (searchList == null) container.innerHTML = "Không có sản phẩm bạn cần tìm";
+        else {
+            const _renderSearched = searchList.map(({ idProduct, productName, image, price }) => {
+                return `
+                <div class="aProduct">
+                    <img class="imgProduct" src=${image} id=${idProduct}/>
+                        <div class="detailsProduct">
+                            <h5>${productName}</h5>
+                            <div class="priceProduct">${price}</div>
+                            <div class="buyProduct">Mua</div>
+                        </div>
+                </div>
+                `
+            }).join('');
+            container.innerHTML = _renderSearched;
+        }
+    }, 400);
+
 }
 
 document.getElementById('searchBut').addEventListener('click', searchProduct);
