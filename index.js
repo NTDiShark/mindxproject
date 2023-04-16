@@ -131,6 +131,7 @@ const renderFilterMenu = (menu) => {
             _productList.forEach(item => {
                 document.getElementById(`buy-${item.idProduct}`).addEventListener('click', () => {
                     carts.push(item);
+                    updateNumberOfCart();
                 });
             });
         });
@@ -184,6 +185,11 @@ function searchProduct() {
         }
     }, 400);
 
+}
+
+function updateNumberOfCart() {
+    console.log(carts.length);
+    document.getElementById('number-of-cart').innerHTML = carts.length;
 }
 
 document.getElementById('searchBut').addEventListener('click', searchProduct);
