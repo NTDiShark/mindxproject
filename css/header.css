@@ -50,7 +50,6 @@ header {
     margin-right: 10rem;
     display: flex;
     align-items: center;
-    justify-content: space-between;
 }
 
 .searchBar input[type=text] {

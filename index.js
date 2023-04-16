@@ -1,7 +1,7 @@
 const TYPES = [
     {
         id: 'all',
-        name: 'Tất cả'
+        name: 'Tất cả sản phẩm'
     },
     {
         id: 'quan',
@@ -94,25 +94,13 @@ const renderFilterMenu = (menu) => {
     const _menu = document.getElementById('menu');
     _menu.innerHTML = menuItems;
 
-    const allProduct = PRODUCTS.map(({ idProduct, productName, image, price }) => {
-        return `
-            <div class="aProduct">
-                <img class="imgProduct" src=${image} id=${idProduct}/>
-                <div class="detailsProduct">
-                    <h5>${productName}</h5>
-                    <div class="priceProduct">${price}</div>
-                    <div class="buyProduct">Mua</div>
-                </div>
-            </div>
-        `
-    }).join('');
-    container.innerHTML = allProduct;
+    
 
     menu.forEach(typeProduct => {
         document.getElementById(typeProduct.id).addEventListener('click', () => {
-            const checkType = (_type) => {
+            const checkType = (_product) => {
                 if (typeProduct.id === 'all') return true;
-                return _type.idType === typeProduct.id;
+                return _product.idType === typeProduct.id;
             };
 
             const menuItem = document.getElementById(typeProduct.id);
@@ -123,6 +111,7 @@ const renderFilterMenu = (menu) => {
             menuItem.classList.add('menu-item-active');
 
             const _productList = PRODUCTS.filter(checkType);
+            console.log(checkType);
             const _renderProduct = _productList.map(({ idProduct, productName, image, price }) => {
                 return `
                 <div class="aProduct">
