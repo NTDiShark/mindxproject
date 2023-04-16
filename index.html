@@ -6,99 +6,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <!-- Latest compiled and minified CSS -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
-      rel="stylesheet" />
-
-    <!-- Latest compiled JavaScript -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="index.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/index.css" />
+    <link rel="stylesheet" href="/css/header.css" />
   </head>
   <body>
-    <nav class="navbar navbar-expand-sm navbar-dark bg-secondary">
-      <div class="container">
-        <a class="navbar-brand" href="javascript:void(0)">Fashion</a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#mynavbar">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="mynavbar">
-          <ul class="navbar-nav me-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="/index.html">Trang chủ</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="javascript:void(0)"
-                >Phân loại sản phẩm</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="javascript:void(0)">Liên hệ</a>
-            </li>
-          </ul>
-        </div>
-        <div>
-          <ul class="navbar-nav">
-            <li>
-              <button id="btn-sign-up" class="btn btn-danger me-1">
-                Đăng ký
-              </button>
-            </li>
-            <li>
-              <button id="button-login" class="btn btn-danger">
-                Đăng nhập
-              </button>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-    <!-- Signup -->
-    <div id="modal-signup-container" class="signup-container">
-      <div class="modal-signup-box">
-        <h1 class="header-signup">Sign up</h1>
-        <div class="m8">
-          <span>Nhập tên</span>
-          <input type="text" name="Tên đăng nhập" />
-        </div>
-        <div>
-          <span>Mật khẩu</span>
-          <input type="password" name="Mật khẩu" class="m8" />
-        </div>
-        <button class="btn btn-success m8">Đăng nhập</button>
-        <button id="button-signup-close" class="btn btn-dark">Đóng</button>
-      </div>
-    </div>
-    <!-- Login -->
-    <div id="modal-login-container" class="loggin-container">
-      <div class="modal-login-box">
-        <h1 class="header-login">Login</h1>
-        <div class="m8">
-          <span>Nhập tên</span>
-          <input type="text" name="Tên đăng nhập" />
-        </div>
-        <div>
-          <span>Mật khẩu</span>
-          <input type="password" name="Mật khẩu" class="m8" />
-        </div>
-        <button class="btn btn-success m8">Đăng nhập</button>
-        <button id="button-login-close" class="btn btn-dark">Đóng</button>
-      </div>
-    </div>
+    
     <!-- Product-container -->
-    <div class="product-container">
+    <header>
+      <div class="navBar">
+        <span class="shopName">MindX Shop</span>
+        <a class="nav" href="./index.html">Trang chủ</a>
+        <a class="nav">Giới thiệu</a>
+      </div>
+      <div class="searchBar">
+          <input type="text" placeholder="Tìm sản phẩm" id="searchProduct">
+          <div class="searchButton" id="searchBut"><img src="./icon/searchicon.png" width="14px"></div>
+      </div>
+    </header>
+    <div id="product-container">
       <!-- Menu -->
       <div id="menu">
       </div>
       <!-- Product list -->
       <div id="product-list">
-        b
       </div>
     </div>  
-      
+    <div id="cart" title="Giỏ hàng">
+      <img src="icon/cart.png" width="50px">
+    </div>
     <!-- JS -->
     <script src="index.js"></script>
     <div></div>

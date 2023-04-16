@@ -1,0 +1,80 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+header {
+    width: 100%;
+    height: fit-content;
+    background-color: #ffff00;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    position: sticky;
+    top: 0;
+    left: 0;
+}
+
+.navBar {
+    margin-left: 10rem;
+    color: white;
+    font-weight: bold;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.shopName {
+    color: white;
+    margin-right: 2rem;
+    font-weight: bold;
+    font-size: 1.5rem;
+    background-color: red;
+    padding: 3px 1rem;
+}
+
+.nav {
+    margin-right: 3rem;
+    cursor: pointer;
+    text-decoration: none;
+    color: #ff0000;
+}
+
+.nav:hover {
+    color: #0000ff;
+}
+
+.searchBar {
+    width: 500px;
+    margin-right: 10rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.searchBar input[type=text] {
+    padding: 6px;
+    font-size: 14px;
+    border: 1px solid black;
+    float: left;
+    width: 80%;
+    background: #f1f1f1;
+    
+}
+
+.searchButton {
+    width: 60px;
+    padding: 6px;
+    background: #2196F3;
+    color: white;
+    font-size: 14px;
+    border: 1px solid black;
+    border-left: none;
+    cursor: pointer;
+    text-align: center;
+}
+
+.searchButton:hover {
+    background: #0b7dda;
+}

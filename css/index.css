@@ -1,0 +1,95 @@
+#product-container {
+    display: flex;
+    padding: 0 2.5rem;
+}
+
+#menu {
+    width: 20%;
+    background-color: white;
+    height: fit-content;
+    margin: 0.5rem;
+    padding: 0.5rem;
+    border-radius: 10px;
+}
+
+.iconType {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.menu-item {
+    width: 100%;
+    padding: 0.5rem;
+    background-color: white;
+    margin-bottom: 3px;
+    cursor: pointer;
+    border-radius: 10px;
+    text-align: left;
+}
+
+.menu-item:hover{
+    background-color: #cccccc;
+}
+
+#product-list {
+    width: 80%;
+    height: fit-content;
+    margin: 0.5rem;
+    padding: 1rem;
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.aProduct{
+    height: fit-content;
+    border: 1px solid #e6e6e6;
+    margin: 0.5rem;
+}
+
+.aProduct:hover {
+    background-color: #cccccc;
+}
+
+.imgProduct {
+    width: 100%;
+    height: 20rem;
+    padding: 2px;
+}
+
+.detailsProduct {
+    margin: 1rem;
+}
+
+.priceProduct {
+    font-weight: bold;
+    color: #0000ff;
+}
+
+.buyProduct {
+    width: 100%;
+    text-align: center;
+    background-color: red;
+    color: white;
+    padding: 0.5rem;
+    border-radius: 10px;
+    margin-top: 8px;
+    font-weight: bold;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+#cart {
+    position: fixed;
+    right: 2rem;
+    bottom: 2rem;
+    width: 70px;
+    height: 70px;
+    padding: 10px;
+    border-radius: 100px;
+    border: 3px solid black;
+    background-color: #d9d9d9;
+    cursor: pointer;
+}
+
+

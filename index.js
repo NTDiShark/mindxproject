@@ -1,24 +1,3 @@
-
-const $loginModal=document.getElementById('modal-login-container');
-const $buttonLogin=document.getElementById('button-login');
-$buttonLogin.addEventListener('click',()=>{
-    $loginModal.classList.add('showing');
-});
-const $buttonCloseLogin=document.getElementById('button-login-close');
-$buttonCloseLogin.addEventListener('click',()=>{
-    $loginModal.classList.remove('showing');
-});
-
-const $signupModal=document.getElementById('modal-signup-container');
-const $buttonSignup=document.getElementById('btn-sign-up');
-$buttonSignup.addEventListener('click',()=>{
-    $signupModal.classList.add('show');
-});
-const $buttonCloseSignup=document.getElementById('button-signup-close');
-$buttonCloseSignup.addEventListener('click',()=>{
-    $signupModal.classList.remove('show');
-});
-
 const TYPES = [
     {
         id: 'quan',
@@ -100,12 +79,12 @@ const PRODUCTS=[
     },  
 ]
 
-const _container = document.getElementById("product-list");
+const container = document.getElementById("product-list");
 
 const renderFilterMenu = (menu) => {
     const menuItems = menu.map(item => {
         return `
-            <div class="menu-item" id="${item.id}">${item.name}</div>
+            <div class="menu-item" id="${item.id}"><img src="./icon/${item.id}.png" class="iconType"> ${item.name}</div>
         `;
     }).join('');
     const _menu = document.getElementById('menu');
@@ -113,17 +92,17 @@ const renderFilterMenu = (menu) => {
 
     const allProduct = PRODUCTS.map(({idProduct,productName,image,price})=>{
         return `
-        <div class="aProduct">
-                <img
-                  class="imgProduct"
-                  src=${image} id=${idProduct}/>
-                <div class="title-pant-card">${productName}</div>
-                <div class="price-pant-card">${price}</div>
-                <button>Mua</button>
-              </div>
+            <div class="aProduct">
+                <img class="imgProduct" src=${image} id=${idProduct}/>
+                <div class="detailsProduct">
+                    <h5>${productName}</h5>
+                    <div class="priceProduct">${price}</div>
+                    <div class="buyProduct">Mua</div>
+                </div>
+            </div>
         `
     }).join('');
-    _container.innerHTML = allProduct;
+    container.innerHTML = allProduct;
 
     menu.forEach(typeProduct => {
         document.getElementById(typeProduct.id).addEventListener('click', () => {
@@ -134,18 +113,60 @@ const renderFilterMenu = (menu) => {
             const _renderProduct = _productList.map(({idProduct,productName,image,price})=>{
                 return `
                 <div class="aProduct">
-                        <img class="imgProduct" src=${image} id=${idProduct}/>
-                        <div class="title-pant-card">${productName}</div>
-                        <div class="price-pant-card">${price}</div>
-                        <button>Mua</button>
+                    <img class="imgProduct" src=${image} id=${idProduct}/>
+                        <div class="detailsProduct">
+                            <h5>${productName}</h5>
+                            <div class="priceProduct">${price}</div>
+                            <div class="buyProduct">Mua</div>
+                        </div>
                 </div>
                 `
             }).join('');
-            _container.innerHTML = _renderProduct;
+            container.innerHTML = _renderProduct;
         });
     });
 }
 
 renderFilterMenu(TYPES);
 
+function formatString(str) {
+    str = str.toLowerCase();
+    str = str.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g, "a");
+    str = str.replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ/g, "e");
+    str = str.replace(/ì|í|ị|ỉ|ĩ/g, "i");
+    str = str.replace(/ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ/g, "o");
+    str = str.replace(/ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ/g, "u");
+    str = str.replace(/ỳ|ý|ỵ|ỷ|ỹ/g, "y");
+    str = str.replace(/đ/g, "d");
+    return str;
+}
 
+function searchProduct() {
+    let keySearch = document.getElementById("searchProduct").value;
+    keySearch = formatString(keySearch);
+    let searchList = [];
+    PRODUCTS.forEach(aProduct => {
+        const temp = formatString(aProduct.productName);
+        if(temp.indexOf(keySearch) != -1) searchList.push(aProduct);
+    })
+    if(searchList == null) container.innerHTML = "Không có sản phẩm bạn cần tìm";
+    else {
+        const _renderSearched = searchList.map(({idProduct,productName,image,price})=>{
+            return `
+            <div class="aProduct">
+                <img class="imgProduct" src=${image} id=${idProduct}/>
+                    <div class="detailsProduct">
+                        <h5>${productName}</h5>
+                        <div class="priceProduct">${price}</div>
+                        <div class="buyProduct">Mua</div>
+                    </div>
+            </div>
+            `
+        }).join('');
+        container.innerHTML = _renderSearched;
+    }
+}
+
+document.getElementById('searchBut').addEventListener('click', searchProduct);
+document.getElementById("searchProduct").addEventListener('keydown', searchProduct);
+document.getElementById("searchProduct").addEventListener('keyup', searchProduct);
