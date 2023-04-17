@@ -84,7 +84,7 @@
     cursor: pointer;
 }
 
-#cart {
+#cart-icon {
     position: fixed;
     right: 2rem;
     bottom: 2rem;

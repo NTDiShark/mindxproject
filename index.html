@@ -11,11 +11,11 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="/css/index.css" />
   <link rel="stylesheet" href="/css/header.css" />
+  <link rel="stylesheet" href="/css/cart.css" />
 </head>
 
 <body>
-
-  <!-- Product-container -->
+  <!-- Header -->
   <header>
     <div class="navBar">
       <span class="shopName">MindX Shop</span>
@@ -27,6 +27,7 @@
       <div class="searchButton" id="searchBut"><img src="./icon/searchicon.png" width="14px"></div>
     </div>
   </header>
+  <!-- Product-container -->
   <div id="product-container">
     <!-- Menu -->
     <div id="menu">
@@ -35,13 +36,21 @@
     <div id="product-list">
     </div>
   </div>
-  <div id="cart" title="Giỏ hàng">
+  <!-- Cart -->
+  <div id="cart-icon" title="Giỏ hàng">
     <img src="icon/cart.png" width="50px">
     <div id="number-of-cart">0</div>
   </div>
+  <div id="cart">
+    <div id="cart-label">GIỎ HÀNG</div>
+    <div id="cart-container">
+      <ul id="show-cart">
+      </ul>
+    </div>
+  </div>
+  
   <!-- JS -->
   <script src="index.js"></script>
-  <div></div>
 </body>
 
 </html>

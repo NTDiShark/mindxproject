@@ -113,7 +113,6 @@ const renderFilterMenu = (menu) => {
             menuItem.classList.add('menu-item-active');
 
             const _productList = PRODUCTS.filter(checkType);
-            console.log(checkType);
             const _renderProduct = _productList.map(({ idProduct, productName, image, price }) => {
                 return `
                 <div class="aProduct">
@@ -188,10 +187,52 @@ function searchProduct() {
 }
 
 function updateNumberOfCart() {
-    console.log(carts.length);
     document.getElementById('number-of-cart').innerHTML = carts.length;
 }
 
 document.getElementById('searchBut').addEventListener('click', searchProduct);
 document.getElementById("searchProduct").addEventListener('keydown', searchProduct);
 document.getElementById("searchProduct").addEventListener('keyup', searchProduct);
+
+const cartIcon = document.getElementById('cart-icon');
+const cartElement = document.getElementById('cart');
+const showCart = document.getElementById('show-cart');
+
+function renderCart() {
+    if(carts.length == 0) showCart.innerHTML = "Chưa có món hàng nào";
+    else {
+        const _renderCart = carts.map(({ idProduct, productName, image, price }) => {
+            return `
+            <li>
+                <img class="cart-img-product" src="${image}">
+                <div class="cart-name-product">${productName}</div>
+                <div class="cart-price-product">${price}</div>
+                <div class="cart-quantity-product">1</div>
+                <div class="cart-total-product">${price}</div>
+                <div class="cart-delete-product" id="delete-${idProduct}">Xóa sản phẩm</div>
+            </li>
+            `
+        }).join('');
+        showCart.innerHTML = _renderCart;
+        
+        //delete product here
+        carts.forEach(item => {
+            document.getElementById(`delete-${item.idProduct}`).addEventListener('click', () => {
+                const i = carts.indexOf(item.idProduct);
+                console.log(i);
+            });
+        });
+    }
+}
+
+cartIcon.addEventListener('click', () => {
+    renderCart();
+    cartElement.style.display = 'block';
+    
+});
+
+window.onclick = function(event) {
+    if (event.target == cartElement) {
+        cartElement.style.display = 'none';
+    }
+}
