@@ -22,68 +22,68 @@ const PRODUCTS = [
         idProduct: 1,
         productName: 'Quần Hiddy',
         image: 'https://bizweb.dktcdn.net/100/399/392/files/ten-goi-cac-loai-quan-nam.jpg?v=1657302603507',
-        price: '255.000đ',
+        price: '255000',
         idType: 'quan',
     },
     {
         idProduct: 2,
         productName: 'Quần tây dài',
         image: 'https://product.hstatic.net/1000096703/product/1_97e42ec95db74e9fa48e57a068f88165_master.jpg',
-        price: '5.000đ',
+        price: '50000',
         idType: 'quan',
     },
     {
         idProduct: 3,
         productName: 'Quần Jean rách',
         image: 'https://thoitrangngaynay.com/upload/sanpham/large/quan-jeans-nam-rach-loang-mau-thoi-trang-488-1.jpg',
-        price: '350.000đ',
+        price: '350000',
         idType: 'quan',
     },
     {
         idProduct: 4,
         productName: 'Giầy Kawwasaki',
         image: 'https://shopvnb.com/uploads/gallery/giay-cau-long-lining-ayzt005-3-chinh-hang.jpg',
-        price: '5.000.000đ',
+        price: '5000000',
         idType: 'giay',
     },
     {
         idProduct: 5,
         productName: 'Giầy Lining',
         image: 'https://shopvnb.com/uploads/gallery/giay-cau-long-lining-ayat003-2-trang-den-noi-dia-trung.jpg',
-        price: '500.000đ',
+        price: '500000',
         idType: 'giay',
     },
     {
         idProduct: 6,
         productName: 'Giầy Yonex',
         image: 'https://shopvnb.com/uploads/gallery/giay-cau-long-lining-ayat001-2-den-noi-dia-trung.jpg',
-        price: '500.000đ',
+        price: '500000',
         idType: 'giay',
     },
     {
         idProduct: 7,
         productName: 'Áo cầu lông VNB',
         image: 'https://shopvnb.com/uploads/san_pham/ao-cau-long-vnb-nu-cam-ma-200-1.webp',
-        price: '200.000',
+        price: '200000',
         idType: 'ao',
     },
     {
         idProduct: 8,
         productName: 'Áo cầu lông Lining',
         image: 'https://shopvnb.com/uploads/san_pham/ao-cau-long-yonex-nu-xanh-bien-ma-746-1.webp',
-        price: '400.000đ',
+        price: '400000',
         idType: 'ao',
     },
     {
         idProduct: 9,
         productName: 'Áo cầu lông',
         image: 'https://shopvnb.com/uploads/san_pham/ao-cau-long-vnb-nam-trang-ma-753-1.webp',
-        price: '200.000đ',
+        price: '200000',
         idType: 'ao',
     },
 ];
 
-const carts = [];
+let carts = [];
 
 const container = document.getElementById("product-list");
 
@@ -119,7 +119,7 @@ const renderFilterMenu = (menu) => {
                     <img class="imgProduct" src=${image} id=${idProduct}/>
                         <div class="detailsProduct">
                             <h5>${productName}</h5>
-                            <div class="priceProduct">${price}</div>
+                            <div class="priceProduct">${Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(price)}</div>
                             <div id="buy-${idProduct}" class="buyProduct">Mua</div>
                         </div>
                 </div>
@@ -158,7 +158,6 @@ let timeoutId = null;
 function searchProduct() {
     let keySearch = document.getElementById("searchProduct").value;
     keySearch = formatString(keySearch);
-    console.log(keySearch);
     clearTimeout(timeoutId);
     timeoutId = setTimeout(() => {
         let searchList = [];
@@ -166,7 +165,7 @@ function searchProduct() {
             const temp = formatString(aProduct.productName);
             if (temp.indexOf(keySearch) != -1) searchList.push(aProduct);
         })
-        if (searchList == null) container.innerHTML = "Không có sản phẩm bạn cần tìm";
+        if (searchList === []) container.innerHTML = "Không có sản phẩm bạn cần tìm";
         else {
             const _renderSearched = searchList.map(({ idProduct, productName, image, price }) => {
                 return `
@@ -174,7 +173,7 @@ function searchProduct() {
                     <img class="imgProduct" src=${image} id=${idProduct}/>
                         <div class="detailsProduct">
                             <h5>${productName}</h5>
-                            <div class="priceProduct">${price}</div>
+                            <div class="priceProduct">${Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(price)}</div>
                             <div class="buyProduct">Mua</div>
                         </div>
                 </div>
@@ -198,30 +197,44 @@ const cartIcon = document.getElementById('cart-icon');
 const cartElement = document.getElementById('cart');
 const showCart = document.getElementById('show-cart');
 
+function updateTotal_product_price() {
+    document.getElementById('totalProduct').innerHTML = carts.length;
+    console.log(carts.length);
+    const tempArr = carts.map(product => product.price);
+    let sum = tempArr.reduce(function (a,b) {return Number.parseFloat(a)+Number.parseFloat(b)}, 0);
+    document.getElementById('totalPrice').innerHTML = Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(sum)
+}
+
 function renderCart() {
-    if(carts.length == 0) showCart.innerHTML = "Chưa có món hàng nào";
+    if(carts.length == 0) {
+        showCart.innerHTML = "Chưa có món hàng nào";
+        updateTotal_product_price();
+    }
     else {
         const _renderCart = carts.map(({ idProduct, productName, image, price }) => {
             return `
             <li>
                 <img class="cart-img-product" src="${image}">
                 <div class="cart-name-product">${productName}</div>
-                <div class="cart-price-product">${price}</div>
+                <div class="cart-price-product">${Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(price)}</div>
                 <div class="cart-quantity-product">1</div>
-                <div class="cart-total-product">${price}</div>
+                <div class="cart-total-product">${Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(price)}</div>
                 <div class="cart-delete-product" id="delete-${idProduct}">Xóa sản phẩm</div>
             </li>
             `
         }).join('');
         showCart.innerHTML = _renderCart;
         
-        //delete product here
         carts.forEach(item => {
             document.getElementById(`delete-${item.idProduct}`).addEventListener('click', () => {
-                const i = carts.indexOf(item.idProduct);
-                console.log(i);
+                carts = carts.filter(product => product.idProduct != item.idProduct); //lọc sản phẩm có id khác với id cần xóa
+                renderCart();
+                updateNumberOfCart();
+                
             });
         });
+
+        updateTotal_product_price();
     }
 }
 

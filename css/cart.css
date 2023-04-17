@@ -70,3 +70,14 @@
     cursor: pointer;
     text-decoration: underline;
 }
+
+#checkout {
+    width: 100%;
+    background-color: green;
+    color: white;
+    padding: 1rem 8rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+

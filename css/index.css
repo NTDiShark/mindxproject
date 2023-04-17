@@ -84,6 +84,10 @@
     cursor: pointer;
 }
 
+.buyProduct:hover {
+    opacity: 0.9;
+}
+
 #cart-icon {
     position: fixed;
     right: 2rem;
