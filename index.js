@@ -29,7 +29,7 @@ const PRODUCTS = [
         idProduct: 2,
         productName: 'Quần tây dài',
         image: 'https://product.hstatic.net/1000096703/product/1_97e42ec95db74e9fa48e57a068f88165_master.jpg',
-        price: '50000',
+        price: '5000',
         idType: 'quan',
     },
     {
@@ -81,7 +81,106 @@ const PRODUCTS = [
         price: '200000',
         idType: 'ao',
     },
-];
+    {
+        idProduct: 10,
+        productName: 'Áo thun xanh Lining',
+        image: 'https://shopvnb.com/uploads/gallery/ao-cau-long-yonex-a327-nam-trang-xanh.jpg',
+        price: '166000',
+        idType: 'ao',
+    },
+    {
+        idProduct: 11,
+        productName: 'Quần felet',
+        image: 'https://shopvnb.com/uploads/gallery/quan-cau-long-felet-cm202b-blk-chinh-hang.jpg',
+        price: '300000',
+        idType: 'quan',
+    },
+    {
+        idProduct: 12,
+        productName: 'Giầy Lining trắng',
+        image: 'https://shopvnb.com/img/300x300/uploads/gallery/giay-cau-long-lining-ayat003-3-trang-noi-dia-trung.jpg',
+        price: '400000',
+        idType: 'giay',
+    },
+    {
+        idProduct: 13,
+        productName: 'Giầy kawasaki trắng',
+        image: 'https://shopvnb.com/uploads/gallery/giay-cau-long-kawasaki-a3311-3-trang-vien-hong-noi-dia-trung.jpg',
+        price: '1500000',
+        idType: 'giay',
+    },
+    {
+        idProduct: 14,
+        productName: 'Áo yonex đỏ',
+        image: 'https://shopvnb.com/uploads/gallery/ao-cau-long-yonex-6267-nam-den.jpg',
+        price: '300000',
+        idType: 'ao',
+    },
+    {
+        idProduct: 15,
+        productName: 'Quần xanh đen',
+        image: 'https://shopvnb.com/uploads/gallery/quan-cau-long-victec-qv001-nu-den-trang.jpg',
+        price: '210000',
+        idType: 'quan',
+    },
+    {
+        idProduct: 16,
+        productName: 'Quần ngắn Kumpo',
+        image: 'https://shopvnb.com/uploads/san_pham/quan-cau-long-thun-du-kamito-ruso-xam-1.webp',
+        price: '177000',
+        idType: 'quan',
+    },
+    {
+        idProduct: 17,
+        productName: 'Giầy Lining AYT',
+        image: 'https://shopvnb.com/uploads/gallery/giay-cau-long-lining-ayzt005-4-chinh-hang.webp',
+        price: '200000',
+        idType: 'giay',
+    },
+    {
+        idProduct: 18,
+        productName: 'Áo khoát cầu lông',
+        image: 'https://shopvnb.com/img/300x300/uploads/san_pham/ao-cau-long-tay-dai-yonex-316-nam-vang-1.webp',
+        price: '600000',
+        idType: 'ao',
+    },
+    {
+        idProduct: 19,
+        productName: 'Quần xanh tím',
+        image: 'https://shopvnb.com/uploads/san_pham/quan-cau-long-yonex-9636-xanh-1.webp',
+        price: '166000',
+        idType: 'quan',
+    },
+    {
+        idProduct: 20,
+        productName: 'Giầy promax',
+        image: 'https://shopvnb.com/uploads/gallery/giay-cau-long-promax-07122-do-den-chinh-hang.jpg',
+        price: '400000',
+        idType: 'giay',
+    },
+    {
+        idProduct: 21,
+        productName: 'Giầy kawa 3309',
+        image: 'https://shopvnb.com/uploads/gallery/giay-cau-long-kawasaki-3307-den-chinh-hang_1.jpg',
+        price: '640000',
+        idType: 'giay',
+    },
+    {
+        idProduct: 22,
+        productName: 'Áo xanh Victor',
+        image: 'https://shopvnb.com/uploads/san_pham/ao-cau-long-yonex-a285-nam-xanh-1.webp',
+        price: '2150000',
+        idType: 'ao',
+    },
+    {
+        idProduct: 23,
+        productName: 'Quần nữ thể thao',
+        image: 'https://shopvnb.com/uploads/san_pham/quan-cau-long-yonex-nu-den-ma-403-1.webp',
+        price: '200000',
+        idType: 'quan',
+    },
+
+]
 
 let carts = [];
 
